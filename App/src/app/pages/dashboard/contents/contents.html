@@ -1,0 +1,57 @@
+<div class="row pie-charts" style="padding-top:50px;">
+
+  <!-- Print all contents -->
+  <div *ngFor="let content of contents" class="col-xlg-2 col-lg-2 col-md-4 col-sm-12 col-xs-12" >
+
+    <!-- Card -->
+    <div class="card" data-toggle="modal" [attr.data-target]="'#modal'+content.idcontent" style="cursor:pointer;background-color:white;box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5); padding: 30px 30px 30px 30px;color:black;border-radius:10px;">
+      <div class="card-block">
+        <img class="image-responsive" [attr.src]="content.image" alt="Contenido" style="width:100px;height:100px;margin: 0 auto;padding-bottom:15px;">
+        <h4 class="card-title text-center" style="color:black;"><strong>{{ content.title }}</strong></h4>
+        <p class="card-text link text-center" style="color:blue;">(Ver detalles)</p>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div style="color:black;" class="modal fade" [attr.id]="'modal'+ content.idcontent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{ content.title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img [attr.src]="content.image" style="width:300px;height:300px;">
+           <table class="table table-bordered table-hover table-striped">
+             <tbody>
+               <tr>
+                 <td class="text-xs-left">Nombre</td>
+                 <td class="text-xs-right">{{content.title}}</td>
+               </tr>
+               <tr>
+                 <td class="text-xs-left">Descripción</td>
+                 <td class="text-xs-right">{{content.description}}</td>
+               </tr>
+               <tr>
+                 <td class="text-xs-left">Categoria</td>
+                 <td class="text-xs-right">{{content.points1}}</td>
+               </tr>
+               <tr>
+                 <td class="text-xs-left">Puntos</td>
+                 <td class="text-xs-right">{{content.points2}}</td>
+               </tr>
+             </tbody>
+           </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Usar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
